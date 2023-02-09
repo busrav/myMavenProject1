@@ -38,5 +38,7 @@ public class SeleniumTask {
             System.out.println("verification is Failed");
             System.out.println("the actual result is: " + actResult);
         }
+
+        driver.quit();
     }
 }

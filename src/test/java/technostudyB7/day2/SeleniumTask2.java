@@ -46,5 +46,7 @@ public class SeleniumTask2 {
 //        <button type="button" onclick="return total()" class="btn btn-default">Get Total</button>
 
 //        <span id="displayvalue">15</span>
+
+        driver.quit();
     }
 }
