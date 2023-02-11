@@ -28,14 +28,14 @@ and store it in actualHREF String
         driver.get("https://www.facebook.com");
 //        <a href="/pages/create/?ref_type=registration_form" class="_8esh">Create a Page</a>
         WebElement link = driver.findElement(By.className("_8esh"));
-        String actualHREF = link.getAttribute("registration_form");
+        String actualHREF = link.getAttribute("href");
         String expectedInHREF = "registration_form";
 
         if(actualHREF.equals(expectedInHREF)){
             System.out.println("verification: PASS");
         }else{
             System.out.println("verification: FAILED");
-            System.out.println("actual header" + actualHREF);
+            System.out.println("actual header: " + actualHREF);
         }
     }
 }
