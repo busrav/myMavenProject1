@@ -36,8 +36,9 @@ public class JSAlert {
 //        <button onclick="jsPrompt()">Click for JS Prompt</button>
         WebElement jsPrompt = driver.findElement(By.cssSelector("button[onclick='jsPrompt()']"));
         jsPrompt.click();
-        driver.switchTo().alert().sendKeys("Hello" + Keys.ENTER);
-        System.out.println(driver.switchTo().alert().getText());
+        driver.switchTo().alert().sendKeys("Hello");
+        driver.switchTo().alert().accept();
+
 
     }
 }
