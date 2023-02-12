@@ -1,7 +1,9 @@
 package technostudyB7.seleniumTasks;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class TC9 {
@@ -26,5 +28,31 @@ String
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
+
+        driver.get("http://zero.webappsecurity.com/login.html");
+
+//        <a href="/index.html" class="brand">Zero Bank</a>
+
+        WebElement linkText = driver.findElement(By.className("brand"));
+        String actLinkText = linkText.getText();
+        String expLinkText = "Zero Bank";
+
+        if(actLinkText.equals(expLinkText)){
+            System.out.println("pass");
+        }else {
+            System.out.println("failed");
+            System.out.println(actLinkText);
+        }
+
+
+        String actualHREF = linkText.getAttribute("href");
+        String expectedInHREF = "index.html";
+
+        if (actualHREF.equals(expectedInHREF)){
+            System.out.println("pass");
+        }else{
+            System.out.println("failed");
+            System.out.println(actualHREF);
+        }
     }
 }
