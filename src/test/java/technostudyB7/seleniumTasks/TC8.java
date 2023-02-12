@@ -1,7 +1,9 @@
 package technostudyB7.seleniumTasks;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class TC8 {
@@ -22,5 +24,19 @@ TIPS FOR TASK #8:
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
+
+        driver.get("http://zero.webappsecurity.com/login.html");
+
+//        <div class="page-header"><h3>Log in to ZeroBank</h3></div>
+        WebElement header = driver.findElement(By.className("page-header"));
+        String actHeader = header.getText();
+        String expHeader = "Log in to ZeroBank";
+
+        if (actHeader.equals(expHeader)) {
+            System.out.println("verification: Pass");
+        }else {
+            System.out.println("verification: failed");
+            System.out.println("actual header is " + actHeader);
+        }
     }
 }
