@@ -20,14 +20,14 @@ Expected: Title should start with “apple” word
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-
+        String input = "apple";
         driver.get("https://google.com");
 
 //        <input class="gLFyf" jsaction="paste:puy29d;" maxlength="2048" name="q" type="text" aria-autocomplete="both" aria-haspopup="false"
 //        autocapitalize="off" autocomplete="off" autocorrect="off" autofocus="" role="combobox" spellcheck="false" title="Search" value=""
 //        aria-label="Search" data-ved="0ahUKEwit3Mbvj4z9AhU0kYkEHTqhCS0Q39UDCAY">
 
-        String input = "apple";
+
         WebElement search = driver.findElement(By.name("q"));
         search.sendKeys(input + Keys.ENTER);
 //<title>apple - Google Search</title>
