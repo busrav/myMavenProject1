@@ -8,9 +8,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class XPATH {
     public static void main(String[] args) {
-//        tagName[attribute='value']
+
 //        //tagName[@attribute='value']     relative xpath   we are going to use relative
-//        /tagName[@attribute='value']     absolute xpath  it starts from beginning as /html/body....
+//        /grandParentTagName/parentTagName/childTagName....     absolute xpath  it starts from beginning as /html/body....
 
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
