@@ -1,0 +1,8 @@
+1- What is action class?
+A class that we use it for special actions
+
+2- Like what?
+Hoverover, double click, hold an element, right click, control keyboard button(Enter, shift....), ..
+
+3- How do you use it?
+I create an object of Actions class then an Action
