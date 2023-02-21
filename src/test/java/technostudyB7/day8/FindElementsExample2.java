@@ -31,7 +31,8 @@ public class FindElementsExample2 extends UtilityClass {
         WebElement loginButton = driver.findElement(By.xpath("//input[@data-test='login-button']"));
         loginButton.click();
 //<button class="btn btn_primary btn_small btn_inventory" data-test="add-to-cart-sauce-labs-bike-light" id="add-to-cart-sauce-labs-bike-light" name="add-to-cart-sauce-labs-bike-light">Add to cart</button>
-        List<WebElement> products = driver.findElements(By.className("inventory_item_name"));
+
+        List<WebElement> products;
         List<String> productsNames = new ArrayList<>();
         List<Integer> indexList = new ArrayList<>();
 //        Random rand = new Random();
@@ -39,6 +40,7 @@ public class FindElementsExample2 extends UtilityClass {
 //            products.get(value).click();
 
         while(productsNames.size()<3) {
+            products = driver.findElements(By.className("inventory_item_name"));
             int randIndex = (int)(Math.random()*products.size());
             if(indexList.contains(randIndex)){
                 continue;
@@ -80,7 +82,11 @@ public class FindElementsExample2 extends UtilityClass {
         WebElement continueButton = driver.findElement(By.xpath("//input[@type='submit']"));
         continueButton.click();
 
+        List<WebElement> checkoutProducts = driver.findElements(By.className("inventory_item_name"));
 
-
+        for (WebElement product : checkoutProducts) {
+            System.out.println(productsNames.contains(product.getText()));
+        }
+        quitDriver(4);
     }
 }
