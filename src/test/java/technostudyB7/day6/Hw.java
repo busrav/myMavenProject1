@@ -54,13 +54,21 @@ public class Hw extends UtilityClass {
 //        <input class="form-control" type="password" placeholder="Password" name="password" value="" required="">
         WebElement passwordEnter = driver.findElement(By.name("password"));
         passwordEnter.sendKeys(password);
+//<div class="recaptcha-checkbox-border" role="presentation" style=""></div>
 
 
-//       <div class="recaptcha-checkbox-border" role="presentation"></div>
+        WebElement cookiesButton = driver.findElement(By.id("cookie_stop"));
+        cookiesButton.click();
 
-//        WebDriverWait wait = new WebDriverWait(driver, 10);
-//
-//        wait.until(ExpectedConditions.elementToBeClickable(
-//                By.xpath("//div[@class='recaptcha-checkbox-border']"))).click();
+
+//<button type="submit" id="button" class="btn btn-default btn-lg
+// btn-block effect ladda-button waves-effect" data-style="zoom-in"><span class="ladda-label">Signup</span><span class="ladda-spinner"></span></button>
+        WebElement signUpButton = driver.findElement(By.xpath("//*[@id=\"button\"]"));
+
+        WebDriverWait wait = new WebDriverWait(driver, 60);
+        wait.until(ExpectedConditions.elementToBeClickable(signUpButton));
+        signUpButton.click();
+
+
     }
 }
