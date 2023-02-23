@@ -12,7 +12,7 @@ public class Window extends UtilityClass {
 
         String mainPageId = driver.getWindowHandle(); // we are getting the id of the main page
 
-        WebElement registerNowButton = driver.findElement(By.cssSelector("a[href='https://seleniumconf.com/']"));
+        WebElement registerNowButton = driver.findElement(By.xpath("//a[text()='Get Tickets']"));
         registerNowButton.click();
 
         Set<String> allIds = driver.getWindowHandles();
@@ -24,6 +24,8 @@ public class Window extends UtilityClass {
         }
 
         System.out.println(driver.getTitle());
+
+        driver.close();
 
         driver.switchTo().window(mainPageId);
         System.out.println(driver.getTitle());
