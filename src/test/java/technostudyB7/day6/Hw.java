@@ -3,11 +3,9 @@ package technostudyB7.day6;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import technostudyB7.utilities.UtilityClass;
 
-import java.time.Duration;
 
 public class Hw extends UtilityClass {
     /** Navigate to https://www.phptravels.net
@@ -19,7 +17,6 @@ public class Hw extends UtilityClass {
      * Check if the title is "Login - PHPTRAVELS"
      * Enter same login information that you used during registration and click login
      * Verify the welcome message contains the first name that you used during registration then close the browser
-     *
      * Note: You can use any locator you want.
      * */
     public static void main(String[] args) {
@@ -69,6 +66,33 @@ public class Hw extends UtilityClass {
         wait.until(ExpectedConditions.elementToBeClickable(signUpButton));
         signUpButton.click();
 
+        String actualTitle = driver.getTitle();
+        String expectedTitle = "Login - safa";
 
+        if(actualTitle.equals(expectedTitle)){
+            System.out.println("verification: pass");
+        }else{
+            System.out.println("verification: fail");
+        }
+
+        WebElement loginEmail = driver.findElement(By.xpath("//*[@id=\"fadein\"]/div[4]/div/div[2]/div[2]/div/form/div[1]/div/input"));
+        loginEmail.sendKeys(email);
+
+        WebElement loginPass = driver.findElement(By.xpath("//*[@id=\"fadein\"]/div[4]/div/div[2]/div[2]/div/form/div[2]/div[1]/input"));
+        loginPass.sendKeys(password);
+
+        WebElement loginButton = driver.findElement(By.cssSelector("button[class=\"btn btn-default btn-lg btn-block effect ladda-button waves-effect\"]"));
+        loginButton.click();
+
+        WebElement welcomeMessage = driver.findElement(By.xpath("//*[@id=\"fadein\"]/section[1]/div/div[1]/div/div[1]/div[1]/div/div/h2"));
+        Wait(3);
+        System.out.println(welcomeMessage.getText());
+        if(welcomeMessage.getText().contains(fName)){
+            System.out.println("verification: pass");
+        }else {
+            System.out.println("verification: fail");
+        }
+
+//        quitDriver(4);
     }
 }
